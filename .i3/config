@@ -88,6 +88,8 @@ exec --no-startup-id volctl
 # Start Applications
 bindcode $mod+Ctrl+$b exec terminal -e 'bmenu'
 bindsym $mod+F2 exec google-chrome-stable
+bindsym $mod+Shift+F2 exec google-chrome-stable --incognito
+bindsym $mod+Ctrl+F2 exec google-chrome-stable --app=`clipit -c`
 #bindsym $mod+F3 exec pcmanfm_pkexec
 bindsym $mod+F3 exec terminal -e 'ranger'
 bindsym $mod+Shift+F3 exec pcmanfm
@@ -339,10 +341,10 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+Ctrl+Left resize shrink width 2 px or 2 ppt
-bindsym $mod+Ctrl+Down resize grow height 2 px or 2 ppt
-bindsym $mod+Ctrl+Up resize shrink height 2 px or 2 ppt
-bindsym $mod+Ctrl+Right resize grow width 2 px or 2 ppt
+bindsym $mod+Ctrl+Left resize shrink width 1 px or 1 ppt
+bindsym $mod+Ctrl+Down resize grow height 1 px or 1 ppt
+bindsym $mod+Ctrl+Up resize shrink height 1 px or 1 ppt
+bindsym $mod+Ctrl+Right resize grow width 1 px or 1 ppt
 
 # Lock screen
 #bindsym $mod+9 exec --no-startup-id blurlock
@@ -360,6 +362,8 @@ exec --no-startup-id clipit
 exec --no-startup-id /home/litt/.screenlayout/default.sh
 # exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
+# exec --no-startup-id start_conky_maia
+exec --no-startup-id conky
 # exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
 # exec --no-startup-id xautolock -time 10 -locker blurlock
@@ -483,24 +487,24 @@ mode "$mode_gaps" {
         bindsym Escape mode "default"
 }
 mode "$mode_gaps_inner" {
-        bindsym plus  gaps inner current plus 5
-        bindsym minus gaps inner current minus 5
+        bindsym plus  gaps inner current plus 2
+        bindsym minus gaps inner current minus 2
         bindsym 0     gaps inner current set 0
 
-        bindsym Shift+plus  gaps inner all plus 5
-        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+plus  gaps inner all plus 2
+        bindsym Shift+minus gaps inner all minus 2
         bindsym Shift+0     gaps inner all set 0
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
 mode "$mode_gaps_outer" {
-        bindsym plus  gaps outer current plus 5
-        bindsym minus gaps outer current minus 5
+        bindsym plus  gaps outer current plus 2
+        bindsym minus gaps outer current minus 2
         bindsym 0     gaps outer current set 0
 
-        bindsym Shift+plus  gaps outer all plus 5
-        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+plus  gaps outer all plus 2
+        bindsym Shift+minus gaps outer all minus 2
         bindsym Shift+0     gaps outer all set 0
 
         bindsym Return mode "default"
