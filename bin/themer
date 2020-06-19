@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+if [ -z "$1" ]
+then
+      echo "No picture provided"
+      exit 0
+fi
+wal -i $1
+oomox-cli -o oomox -m all /home/litt/.cache/wal/colors-oomox
+oomox-archdroid-icons-cli -o oomox /home/litt/.cache/wal/colors-oomox
+pkill dunst
+dunst &
+. "/home/litt/.cache/wal/colors.sh"
+gsettings set org.freedesktop.ibus.panel xkb-icon-rgba $color1
