@@ -5,7 +5,7 @@ then
       exit 0
 fi
 wal -i $1
-oomox-cli -o oomox -m all /home/litt/.cache/wal/colors-oomox
+oomox-cli -o oomox -m all -d true /home/litt/.cache/wal/colors-oomox
 oomox-archdroid-icons-cli -o oomox /home/litt/.cache/wal/colors-oomox
 pkill dunst
 dunst &
