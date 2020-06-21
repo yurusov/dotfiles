@@ -137,6 +137,7 @@ ex ()
   fi
 }
 
+FPATH=$HOME/.fpath:$FPATH
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"

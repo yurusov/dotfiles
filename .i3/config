@@ -87,15 +87,15 @@ bindcode $mod+Ctrl+$m exec pavucontrol
 
 # Start Applications
 bindcode $mod+Ctrl+$b exec terminal -e 'bmenu'
-bindsym $mod+F2 exec google-chrome-stable
-bindsym $mod+Shift+F2 exec google-chrome-stable --incognito
-bindsym $mod+Ctrl+F2 exec google-chrome-stable --app=`clipit -c`
+bindsym $mod+F2 exec firefox
+bindsym $mod+Shift+F2 exec firefox --private-window
+bindsym $mod+Ctrl+F2 exec firefox --new-window --kiosk `clipit -c`
 #bindsym $mod+F3 exec pcmanfm_pkexec
 bindsym $mod+F3 exec terminal -e 'ranger'
 bindsym $mod+Shift+F3 exec pcmanfm
 bindsym $mod+F5 exec terminal -e 'mocp'
-bindcode $mod+Shift+$t exec --no-startup-id pkill compton
-bindcode $mod+Ctrl+$t exec --no-startup-id compton -b
+bindcode $mod+Shift+$t exec --no-startup-id pkill picom
+bindcode $mod+Ctrl+$t exec --no-startup-id picom -b
 bindcode $mod+Shift+$d exec dmenu_run -nb "$fg" -nf "$bg" -sb "$bg" -sf "$fg"
 bindcode $mod+Ctrl+$d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym --release Print exec maim | xclip -selection clipboard -t image/png && xclip -selection clipboard -t image/png -o > ~/Pictures/Screenshots/$(date +%s).png
@@ -354,7 +354,7 @@ bindsym $mod+F7 exec mpv `clipit -c`
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 #exec --no-startup-id nitrogen --restore; sleep 1; compton -b
-exec --no-startup-id wal -R ; sleep 1; compton -b
+exec --no-startup-id wal -R ; sleep 1; picom -b
 #exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
@@ -368,7 +368,7 @@ exec --no-startup-id conky
 # exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
 # exec --no-startup-id xautolock -time 10 -locker blurlock
-exec_always --no-startup-id ff-theme-util
+# exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 #exec --no-startup-id blueberry-tray
 exec --no-startup-id udiskie
@@ -530,3 +530,4 @@ mode "$mode_gaps_outer" {
 }
 
 exec --no-startup-id i3-msg workspace 1
+
