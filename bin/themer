@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
-if [ -z "$1" ]
-then
-      echo "No picture provided"
-      exit 0
-fi
-wal -i $1
+wal "$@" 
+[ $? -eq 0 ]  || exit 1
 pywalfox update
 pywal-discord
 . "/home/litt/.cache/wal/colors.sh"
