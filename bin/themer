@@ -11,3 +11,7 @@ pkill dunst
 dunst &
 spicetify update
 wal_steam
+dir_path=`dirname $0`
+killall telegram-desktop
+$dir_path/telegram-palette-gen/telegram-palette-gen --wal
+telegram-desktop -startintray > /dev/null 2>&1 &
