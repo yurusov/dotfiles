@@ -7,6 +7,7 @@ set $mod Mod4
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
 
+set $term kitty
 
 set $q 24
 set $w 25
@@ -57,7 +58,7 @@ font xft:URWGothic-Book 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminal
+bindsym $mod+Return exec $term
 
 # kill focused window
 bindcode $mod+$q kill
@@ -73,7 +74,7 @@ bindcode $mod+$z exec --no-startup-id morc_menu
 ################################################################################################
 
 # exec --no-startup-id volumeicon
-# bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
+# bindsym $mod+Ctrl+m exec $term -e 'alsamixer'
 # exec --no-startup-id pulseaudio
 # exec --no-startup-id pa-applet
 bindcode $mod+Ctrl+$m exec pavucontrol
@@ -86,14 +87,13 @@ bindcode $mod+Ctrl+$m exec pavucontrol
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 # Start Applications
-bindcode $mod+Ctrl+$b exec terminal -e 'bmenu'
 bindsym $mod+F2 exec firefox
 bindsym $mod+Shift+F2 exec firefox --private-window
 bindsym $mod+Ctrl+F2 exec firefox --new-window --kiosk `clipit -c`
 #bindsym $mod+F3 exec pcmanfm_pkexec
-bindsym $mod+F3 exec terminal -e 'ranger'
+bindsym $mod+F3 exec $term -e 'ranger'
 bindsym $mod+Shift+F3 exec pcmanfm
-bindsym $mod+F5 exec terminal -e 'mocp'
+bindsym $mod+F5 exec $term -e 'mocp'
 bindcode $mod+Shift+$t exec --no-startup-id pkill picom
 bindcode $mod+Ctrl+$t exec --no-startup-id picom -b
 bindcode $mod+Shift+$d exec dmenu_run -nb "$fg" -nf "$bg" -sb "$bg" -sf "$fg"
@@ -477,7 +477,7 @@ client.background       $bg
 #############################
 
 # Set inner/outer gaps
-gaps inner 10
+gaps inner 6
 gaps outer 0
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
