@@ -46,10 +46,28 @@ default_height = 30
   name = "lang#crystal"
 
 [[layers]]
+  name = "lang#javascript"
+
+[[layers]]
   name = "colorscheme"
 
 [[layers]]
   name = "unite"
+
+[[layers]]
+  name = "sudo"
+
+[[layers]]
+  name = "github"
+
+[[layers]]
+  name = "git"
+
+[[layers]]
+  name = "debug"
+
+[[layers]]
+  name = "VersionControl"
 
 [[custom_plugins]]
 name = "francoiscabrol/ranger.vim"

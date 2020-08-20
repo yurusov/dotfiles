@@ -17,6 +17,7 @@ foreground-alt = ${xrdb:color7:#222}
 primary = ${xrdb:color1:#222}
 secondary = ${xrdb:color2:#222}
 alert = ${xrdb:color3:#222}
+accent = ${xrdb:color10:#222}
 
 [bar/bottom]
 bottom = true
@@ -84,24 +85,24 @@ label-indicator-underline = ${colors.primary}
 type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
-wrapping-scroll = true
+wrapping-scroll = false
 strip-wsnumbers = true
-enable-scroll = true
+enable-scroll = false
 
 label-mode = %mode%
 label-mode-padding = 1
 label-mode-foreground = ${colors.foreground}
 label-mode-background = ${colors.primary}
 
-label-focused = %index%
+label-focused = %name%
 label-focused-background = ${colors.background-alt}
-label-focused-underline = ${colors.primary}
+label-focused-underline = ${colors.accent}
 label-focused-padding = 1
 
-label-unfocused = %index%
+label-unfocused = %name%
 label-unfocused-padding = 1
 
-label-visible = V %index%
+label-visible = V %name%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-background}
 label-visible-padding = ${self.label-focused-padding}

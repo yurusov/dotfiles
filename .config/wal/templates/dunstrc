@@ -27,12 +27,14 @@
 
     # Font and typography settings
     font = inconsolata 12
-    alignment = center
+    alignment = left
     word_wrap = yes
+    icon_position = left
+    max_icon_size = 64
 
     # Format for how notifications will be displayed
     # Usage: `notify-send 'Title' 'Summary'`
-    format = "%s: %b"
+    format = "%s %p\n%b"
 
     # Allow some HTML tags like <i> and <> in notifications
     markup = full

@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+mpv --wid=`wmctrl -l | grep -i Streamlink | awk '{print $1}'` $@ 

@@ -75,7 +75,7 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git ruby rails rake-fast sudo web-search )
+plugins=(git ruby rails rake-fast sudo docker docker-compose)
 
 
 # User configuration
@@ -137,8 +137,6 @@ ex ()
   fi
 }
 
-FPATH=$HOME/.fpath:$FPATH
-
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
@@ -148,4 +146,8 @@ export PATH="$HOME/.cargo/bin:$PATH"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 source $HOME/.aliases
+
+zstyle ':completion:*' rehash true
+
+export PATH="$HOME/.bin:$PATH"
 
