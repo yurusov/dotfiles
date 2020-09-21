@@ -71,20 +71,20 @@ bindcode $mod+$d exec --no-startup-id rofi -show drun
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 # Start Applications
-bindsym $mod+F1 exec wmctrl -x -a spotify || spotify
+bindsym $mod+F1 workspace $ws10; exec pgrep spotify || spotify 
 bindsym $mod+F2 exec firefox
 bindsym $mod+Shift+F2 exec firefox --private-window
-bindsym $mod+F3 exec $term 'ranger'
+bindsym $mod+F3 exec $term ranger
 bindsym $mod+Shift+F3 exec pcmanfm
 # Take clipboard content and try to play it with mpv. Works with youtube videos and playlists, twitch ,vimeo, etc
 bindsym $mod+F7 exec streamlink `clipit -c`
-bindcode $mod+Shift+$t exec --no-startup-id pkill picom
-bindcode $mod+Ctrl+$t exec --no-startup-id picom -b
+bindcode $mod+Shift+$p exec --no-startup-id pkill picom
+bindcode $mod+Ctrl+$p exec --no-startup-id picom -b
 bindcode $mod+Shift+$d exec dmenu_run -nb "$fg" -nf "$bg" -sb "$bg" -sf "$fg"
 bindcode $mod+Ctrl+$d --release exec "killall dunst; exec notify-send 'restart dunst'"
-bindsym --release Print exec maim | xclip -selection clipboard -t image/png && xclip -selection clipboard -t image/png -o > ~/pictures/screenshots/$(date +%s).png
-bindsym --release $mod+Print exec maim -s | xclip -selection clipboard -t image/png && xclip -selection clipboard -t image/png -o > ~/pictures/screenshots/$(date +%s).png
-bindsym --release Mod1+Sys_Req exec maim -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png && xclip -selection clipboard -t image/png -o > ~/pictures/screenshots/$(date +%s).png
+bindsym --release Print exec maim | xclip -selection clipboard -t image/png && xclip -selection clipboard -t image/png -o > ~/pictures/screenshots/$(date +%Y-%m-%d-%H-%M-%S).png && notify-send "Fullscreen screenshot saved as" ~/pictures/screenshots/$(date +%Y-%m-%d-%H-%M-%S).png
+bindsym --release $mod+Print exec maim -s | xclip -selection clipboard -t image/png && xclip -selection clipboard -t image/png -o > ~/pictures/screenshots/$(date +%Y-%m-%d-%H-%M-%S).png && notify-send "Selection screenshot saved as" ~/pictures/screenshots/$(date +%Y-%m-%d-%H-%M-%S).png
+bindsym --release Mod1+Sys_Req exec maim -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png && xclip -selection clipboard -t image/png -o > ~/pictures/screenshots/$(date +%Y-%m-%d-%H-%M-%S).png && notify-send "Active window screenshot saved as" ~/pictures/screenshots/$(date +%Y-%m-%d-%H-%M-%S).png
 bindcode $mod+Ctrl+$x --release exec --no-startup-id xkill
 bindcode $mod+Ctrl+$m exec pavucontrol
 
@@ -262,6 +262,9 @@ for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
 
 for_window [class="chatterino"] floating enable border none
+for_window [class="streamlink-twitch-gui"] layout tabbed border none
+for_window [class="mpv"] border none
+for_window [class="ts-polkitagent"] fullscreen enable
 
 for_window [class="^Steam$"] floating enable
 for_window [class="^Steam$" title="^Friends$"] floating enable
@@ -357,6 +360,7 @@ exec --no-startup-id QT_IM_MODULE=ibus telegram-desktop -startintray
 exec --no-startup-id discord --start-minimized
 exec_always --no-startup-id autotiling
 exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec --no-startup-id /usr/lib/ts-polkitagent &
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
@@ -462,4 +466,19 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
+
+set $mode_trans Current window transparency +|-|0
+bindcode $mod+Shift+$t mode "$mode_trans"
+mode "$mode_trans" {
+        bindsym plus  exec picom-trans -c +2
+        bindsym minus exec picom-trans -c -2
+        bindsym 0     exec picom-trans -c 100
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+
+exec --no-startup-id i3-msg workspace 1
 

@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
-mpv --wid=`wmctrl -l | grep -i Streamlink | awk '{print $1}'` $@ 
+#mpv --wid=`wmctrl -l | grep Streamlink | awk '{print $1}'` $@ 
+WID=`xdotool getactivewindow`
+mpv --wid=$WID $@ 
