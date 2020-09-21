@@ -66,9 +66,6 @@ bindcode $mod+$d exec --no-startup-id rofi -show drun
 
 ################################################################################################
 
-# Screen brightness controls
-# bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-# bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 # Start Applications
 bindsym $mod+F1 workspace $ws10; exec pgrep spotify || spotify 
@@ -351,7 +348,7 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id barrier
 exec --no-startup-id conky -c .cache/wal/conky.conf
 exec --no-startup-id pasystray
-# exec --no-startup-id xautolock -time 10 -locker blurlock
+exec --no-startup-id xss-lock --transfer-sleep-lock -- blurlock --nofork
 exec --no-startup-id udiskie -s
 exec --no-startup-id ibus-daemon -drx
 exec_always --no-startup-id numlockx on
