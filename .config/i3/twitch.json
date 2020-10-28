@@ -1,0 +1,62 @@
+// vim:ts=4:sw=4:et
+{
+    // tabbed split container with 1 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "tabbed",
+    "percent": 0.8,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "none",
+            "current_border_width": 0,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 720,
+               "width": 1093,
+               "x": 0,
+               "y": 0
+            },
+            "name": "Streamlink Twitch GUI",
+            "percent": 1,
+            "swallows": [
+               {
+               "class": "^streamlink\\-twitch\\-gui$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
+{
+    // splitv split container with 1 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "percent": 0.2,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "none",
+            "current_border_width": 0,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 480,
+               "width": 640,
+               "x": 0,
+               "y": 0
+            },
+            "name": "Chatterino 2.2.2 - krappa",
+            "percent": null,
+            "swallows": [
+               {
+               "class": "^chatterino$",
+               "instance": "^chatterino$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+

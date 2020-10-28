@@ -75,13 +75,14 @@ bindsym $mod+F3 exec $term ranger
 bindsym $mod+Shift+F3 exec pcmanfm
 # Take clipboard content and try to play it with mpv. Works with youtube videos and playlists, twitch ,vimeo, etc
 bindsym $mod+F7 exec streamlink `clipit -c`
+bindsym $mod+F9 exec mpv `clipit -c`
 bindcode $mod+Shift+$p exec --no-startup-id pkill picom
 bindcode $mod+Ctrl+$p exec --no-startup-id picom -b
 bindcode $mod+Shift+$d exec dmenu_run -nb "$fg" -nf "$bg" -sb "$bg" -sf "$fg"
 bindcode $mod+Ctrl+$d --release exec "killall dunst; exec notify-send 'restart dunst'"
-bindsym --release Print exec maim | xclip -selection clipboard -t image/png && xclip -selection clipboard -t image/png -o > ~/pictures/screenshots/$(date +%Y-%m-%d-%H-%M-%S).png && notify-send "Fullscreen screenshot saved as" ~/pictures/screenshots/$(date +%Y-%m-%d-%H-%M-%S).png
-bindsym --release $mod+Print exec maim -s | xclip -selection clipboard -t image/png && xclip -selection clipboard -t image/png -o > ~/pictures/screenshots/$(date +%Y-%m-%d-%H-%M-%S).png && notify-send "Selection screenshot saved as" ~/pictures/screenshots/$(date +%Y-%m-%d-%H-%M-%S).png
-bindsym --release Mod1+Sys_Req exec maim -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png && xclip -selection clipboard -t image/png -o > ~/pictures/screenshots/$(date +%Y-%m-%d-%H-%M-%S).png && notify-send "Active window screenshot saved as" ~/pictures/screenshots/$(date +%Y-%m-%d-%H-%M-%S).png
+bindsym --release Print exec maim | xclip -selection clipboard -t image/png && xclip -selection clipboard -t image/png -o > ~/Pictures/screenshots/$(date +%Y-%m-%d-%H-%M-%S).png && notify-send "Fullscreen screenshot saved as" ~/pictures/screenshots/$(date +%Y-%m-%d-%H-%M-%S).png
+bindsym --release $mod+Print exec maim -s | xclip -selection clipboard -t image/png && xclip -selection clipboard -t image/png -o > ~/Pictures/screenshots/$(date +%Y-%m-%d-%H-%M-%S).png && notify-send "Selection screenshot saved as" ~/pictures/screenshots/$(date +%Y-%m-%d-%H-%M-%S).png
+bindsym --release Mod1+Sys_Req exec maim -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png && xclip -selection clipboard -t image/png -o > ~/Pictures/screenshots/$(date +%Y-%m-%d-%H-%M-%S).png && notify-send "Active window screenshot saved as" ~/pictures/screenshots/$(date +%Y-%m-%d-%H-%M-%S).png
 bindcode $mod+Ctrl+$x --release exec --no-startup-id xkill
 bindcode $mod+Ctrl+$m exec pavucontrol
 
@@ -169,8 +170,8 @@ set $ws5 5
 set $ws6 6
 set $ws7 7
 set $ws8 8
-set $ws9 9
-set $ws10 10:
+set $ws9 9: 
+set $ws10 10: 
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -348,7 +349,7 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id barrier
 exec --no-startup-id conky -c .cache/wal/conky.conf
 exec --no-startup-id pasystray
-exec --no-startup-id xss-lock --transfer-sleep-lock -- blurlock --nofork
+#exec --no-startup-id xss-lock --transfer-sleep-lock -- blurlock --nofork
 exec --no-startup-id udiskie -s
 exec --no-startup-id ibus-daemon -drx
 exec_always --no-startup-id numlockx on
