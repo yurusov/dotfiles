@@ -1,18 +1,18 @@
 #!/usr/bin/env bash
 wal "$@" 
 [ $? -eq 0 ]  || exit 1
-pywalfox update
+python ~/.local/bin/pywalfox update
 pywal-discord
-. "/home/litt/.cache/wal/colors.sh"
+source ~/.cache/wal/colors.sh
 gsettings set org.freedesktop.ibus.panel xkb-icon-rgba $color10
 oomox-cli -o oomox -m all /home/litt/.cache/wal/colors-oomox
 # oomox-archdroid-icons-cli -o oomox /home/litt/.cache/wal/colors-oomox
 pkill dunst
 dunst &
 spicetify update
-wal_steam
+# wal_steam
 killall telegram-desktop
 ~/.telegram-palette-gen/telegram-palette-gen --wal
 telegram-desktop -startintray &>/dev/null &
-convert `cat .cache/wal/wal` /usr/share/lightdm-webkit/themes/glorious/assets/bg.jpg
+# convert `cat .cache/wal/wal` /usr/share/lightdm-webkit/themes/glorious/assets/bg.jpg
 exit 0

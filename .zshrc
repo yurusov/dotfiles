@@ -149,7 +149,6 @@ source $HOME/.aliases
 
 zstyle ':completion:*' rehash true
 
-export PATH="$HOME/.bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 alias sudo='sudo -v; sudo '

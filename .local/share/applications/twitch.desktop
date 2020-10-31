@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Name=Twitch
+GenericName=Twitch.tv browser for Streamlink
+Comment=Browse Twitch.tv with StreamLink and Chatterino
+Keywords=twitch;streaming;
+Categories=Network;AudioVideo;
+Exec=/home/litt/.local/bin/twitch
+Icon=streamlink-twitch-gui
+NoDisplay=false
+Path=
+Terminal=false
+X-GNOME-UsesNotifications=false

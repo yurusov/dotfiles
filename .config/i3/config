@@ -72,6 +72,8 @@ bindsym $mod+F1 workspace $ws10; exec pgrep spotify || spotify
 bindsym $mod+F2 exec firefox
 bindsym $mod+Shift+F2 exec firefox --private-window
 bindsym $mod+F3 exec $term ranger
+bindsym $mod+F4 exec ~/.local/bin/themer -w
+bindsym $mod+F5 exec ~/.local/bin/themer -wl
 bindsym $mod+Shift+F3 exec pcmanfm
 # Take clipboard content and try to play it with mpv. Works with youtube videos and playlists, twitch ,vimeo, etc
 bindsym $mod+F7 exec streamlink `clipit -c`
@@ -170,8 +172,8 @@ set $ws5 5
 set $ws6 6
 set $ws7 7
 set $ws8 8
-set $ws9 9: 
-set $ws10 10: 
+set $ws9 9:
+set $ws10 10:
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -259,7 +261,7 @@ for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
 
-for_window [class="chatterino"] floating enable border none
+for_window [class="chatterino"] border none
 for_window [class="streamlink-twitch-gui"] layout tabbed border none
 for_window [class="mpv"] border none
 for_window [class="ts-polkitagent"] fullscreen enable
