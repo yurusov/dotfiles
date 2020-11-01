@@ -261,10 +261,18 @@ for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
 
-for_window [class="chatterino"] border none
 for_window [class="streamlink-twitch-gui"] layout tabbed border none
 for_window [class="mpv"] border none
 for_window [class="ts-polkitagent"] fullscreen enable
+
+
+for_window [class="chatterino" title="^Chatterino 2.*$"] border none
+for_window [class="chatterino" title="^Chatterino Settings$"] floating enable border normal
+for_window [class="chatterino" title="^Emotes .*$"] floating enable border normal
+for_window [class="chatterino" title="^Searching .*$"] floating enable border normal
+for_window [class="chatterino" title="^Select .*$"] floating enable border normal
+for_window [class="chatterino" title="^.* Usercard$"] floating enable border normal
+
 
 for_window [class="^Steam$"] floating enable
 for_window [class="^Steam$" title="^Friends$"] floating enable
