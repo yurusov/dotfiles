@@ -265,7 +265,6 @@ for_window [class="streamlink-twitch-gui"] layout tabbed border none
 for_window [class="mpv"] border none
 for_window [class="ts-polkitagent"] fullscreen enable
 
-
 for_window [class="chatterino" title="^Chatterino 2.*$"] border none
 for_window [class="chatterino" title="^Chatterino Settings$"] floating enable border normal
 for_window [class="chatterino" title="^Emotes .*$"] floating enable border normal
@@ -432,7 +431,7 @@ gaps outer 0
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
+# smart_gaps inverse_outer
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
@@ -465,11 +464,11 @@ mode "$mode_gaps_inner" {
 mode "$mode_gaps_outer" {
         bindsym plus  gaps outer current plus 2
         bindsym minus gaps outer current minus 2
-        bindsym 0     gaps outer current set 0
+        bindsym 0     gaps outer current set 0 , gaps bottom current set 26
 
         bindsym Shift+plus  gaps outer all plus 2
         bindsym Shift+minus gaps outer all minus 2
-        bindsym Shift+0     gaps outer all set 0
+        bindsym Shift+0     gaps outer all set 0 , gaps bottom all set 26
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -487,6 +486,4 @@ mode "$mode_trans" {
         bindsym Escape mode "default"
 }
 
-
-exec --no-startup-id i3-msg workspace 1
-
+gaps bottom 26
