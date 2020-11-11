@@ -1,15 +1,4 @@
-; @author Seth Traman
-; @file My polybar config, dumdum
-
 [colors]
-;background = #00000000
-;background-alt = #99333333
-;foreground = #dadfe1
-;foreground-alt = #555
-;primary = #5c72f4
-;secondary = #6ef9f9
-;alert = #751715
-
 background = ${xrdb:color0:#222}
 background-alt = ${xrdb:color0:#222}
 foreground = ${xrdb:color7:#222}
@@ -19,35 +8,20 @@ secondary = ${xrdb:color2:#222}
 alert = ${xrdb:color3:#222}
 accent = ${xrdb:color10:#222}
 
-[bar/tray]
-bottom = true
-width = 15%
-height = 26
-radius = 4
-enable-ipc = true
-override-redirect = true
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-offset-x = 85%:-1
-offset-y = 27
-
-tray-position = right
-tray-padding = 2
-tray-scale = 1.0
-tray-maxsize = 20
-tray-detached = true
-
-modules-left = tray-hide 
-
 [bar/main]
 bottom = true
 width = 100%
 height = 26
 radius = 0.0
 fixed-center = true
-tray-position = none
+
+tray-position = right
+tray-padding = 2
+tray-scale = 1.0
+tray-maxsize = 20
+tray-detached = true
+tray-offset-x = -355
+tray-offset-y = 0
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -59,7 +33,7 @@ border-size = 0
 border-color = #00000000
 
 padding-left = 0
-padding-right = 0
+padding-right = 1
 
 module-margin-left = 1
 module-margin-right = 1
@@ -69,12 +43,12 @@ font-1 = "Droid Sans:style=Regular:size=10:antialias=true;1"
 
 modules-left = i3 
 modules-center = xwindow
-modules-right = cpu memory network pulseaudio date tray-toggle
+modules-right = cpu memory network pulseaudio date 
 
 wm-restack = i3
 
-scroll-up = i3-msg workspace prev_on_output
-scroll-down = i3-msg workspace next_on_output
+;scroll-up = i3-msg workspace prev_on_output
+;scroll-down = i3-msg workspace next_on_output
 
 override-redirect = true
 
@@ -311,20 +285,13 @@ interval = 0
 
 click-right = pavucontrol &
 
-
 [module/i3-windows]
 type = custom/script
 exec = ~/.config/polybar/scripts/polybar-i3-windows/module.py
 tail = true
 
-
-
 [settings]
 screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
 
 [global/wm]
 margin-top = 0

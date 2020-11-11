@@ -75,3 +75,6 @@ name = "francoiscabrol/ranger.vim"
 [[custom_plugins]]
 name = "dylanaraps/wal.vim"
 
+[[custom_plugins]]
+name = "slim-template/vim-slim"
+

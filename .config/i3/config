@@ -357,7 +357,8 @@ exec --no-startup-id ~/.screenlayout/default.sh
 exec --no-startup-id blueman-applet
 exec --no-startup-id barrier
 exec --no-startup-id conky -c .cache/wal/conky.conf
-exec --no-startup-id pasystray
+#exec --no-startup-id pasystray
+exec --no-startup-id volctl
 #exec --no-startup-id xss-lock --transfer-sleep-lock -- blurlock --nofork
 exec --no-startup-id udiskie -s
 exec --no-startup-id ibus-daemon -drx
@@ -366,7 +367,9 @@ exec_always --no-startup-id numlockx on
 exec --no-startup-id QT_IM_MODULE=ibus telegram-desktop -startintray
 exec --no-startup-id discord --start-minimized
 exec_always --no-startup-id autotiling
-exec_always --no-startup-id ~/.config/polybar/launch.sh
+# exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec --no-startup-id python ~/.config/i3/i3-mode-wrapper.py
+exec --no-startup-id xfce4-panel &
 exec --no-startup-id /usr/lib/ts-polkitagent &
 
 # Color palette used for the terminal ( ~/.Xresources file )
@@ -486,4 +489,4 @@ mode "$mode_trans" {
         bindsym Escape mode "default"
 }
 
-gaps bottom 26
+gaps bottom 0
