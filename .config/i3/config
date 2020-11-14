@@ -68,7 +68,7 @@ bindcode $mod+$d exec --no-startup-id rofi -show drun
 
 
 # Start Applications
-bindsym $mod+F1 workspace $ws10; exec pgrep spotify || spotify 
+bindsym $mod+F1 exec pgrep spotify || spotify 
 bindsym $mod+F2 exec firefox
 bindsym $mod+Shift+F2 exec firefox --private-window
 bindsym $mod+F3 exec $term ranger
