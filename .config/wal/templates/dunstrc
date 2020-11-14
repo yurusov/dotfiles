@@ -42,8 +42,8 @@
 # These are the keybindings used to control dunst notifications
 [shortcuts]
     close = ctrl+space
-    close_all = ctrl+shift+space
-    history = ctrl+grave
+    close_all = ctrl+alt+space
+    history = ctrl+shift+space
 
 # Set the background and foreground (text) color for all notifications
 [urgency_low]
