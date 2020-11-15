@@ -56,6 +56,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec $term
+bindsym Menu nop kitti3
 
 # kill focused window
 bindcode $mod+$q kill
@@ -68,7 +69,7 @@ bindcode $mod+$d exec --no-startup-id rofi -show drun
 
 
 # Start Applications
-bindsym $mod+F1 exec pgrep spotify || spotify 
+bindsym $mod+F1 exec wmctrl -x -a spotify || (i3-new-workspace && (pgrep spotify || spotify))
 bindsym $mod+F2 exec firefox
 bindsym $mod+Shift+F2 exec firefox --private-window
 bindsym $mod+F3 exec $term ranger
@@ -172,20 +173,20 @@ set $ws5 5
 set $ws6 6
 set $ws7 7
 set $ws8 8
-set $ws9 9:
-set $ws10 10:
+set $ws9 9
+set $ws10 10
 
 # switch to workspace
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10
+bindsym $mod+1 exec i3-workspace-switch 1 || i3-new-workspace
+bindsym $mod+2 exec i3-workspace-switch 2 || i3-new-workspace
+bindsym $mod+3 exec i3-workspace-switch 3 || i3-new-workspace
+bindsym $mod+4 exec i3-workspace-switch 4 || i3-new-workspace
+bindsym $mod+5 exec i3-workspace-switch 5 || i3-new-workspace
+bindsym $mod+6 exec i3-workspace-switch 6 || i3-new-workspace
+bindsym $mod+7 exec i3-workspace-switch 7 || i3-new-workspace
+bindsym $mod+8 exec i3-workspace-switch 8 || i3-new-workspace
+bindsym $mod+9 exec i3-workspace-switch 9 || i3-new-workspace
+bindsym $mod+0 exec i3-workspace-switch 10 || i3-new-workspace
 
 # Move focused container to workspace
 bindsym $mod+Ctrl+1 move container to workspace $ws1
@@ -285,7 +286,6 @@ for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
 for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
 for_window [title="^Steam Keyboard$"] floating enable
 
-for_window [class="Spotify"] move to workspace $ws10
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -368,9 +368,10 @@ exec --no-startup-id QT_IM_MODULE=ibus telegram-desktop -startintray
 exec --no-startup-id discord --start-minimized
 exec_always --no-startup-id autotiling
 # exec_always --no-startup-id ~/.config/polybar/launch.sh
-exec --no-startup-id python ~/.config/i3/i3-mode-wrapper.py
+exec_always --no-startup-id python ~/.config/i3/i3-mode-wrapper.py
 exec --no-startup-id xfce4-panel &
 exec --no-startup-id /usr/lib/ts-polkitagent &
+exec_always --no-startup-id kitti3 -p top -- --class kitti3
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:

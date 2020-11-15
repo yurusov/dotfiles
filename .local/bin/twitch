@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 (wmctrl -x -a streamlink-twitch-gui || wmctrl -x -a chatterino ) && exit 0
-i3-msg "workspace 9:; append_layout ~/.config/i3/twitch.json"
+i3-new-workspace
+i3-msg "append_layout ~/.config/i3/twitch.json"
 (streamlink-twitch-gui &)
 (chatterino &)
