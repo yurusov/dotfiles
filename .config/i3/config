@@ -69,7 +69,7 @@ bindcode $mod+$d exec --no-startup-id rofi -show drun
 
 
 # Start Applications
-bindsym $mod+F1 exec wmctrl -x -a spotify || (i3-new-workspace && (pgrep spotify || spotify))
+bindsym $mod+F1 exec wmctrl -x -a spotify || ((python ~/.config/i3/workspace_free.py || i3-new-workspace) && (pgrep spotify || spotify))
 bindsym $mod+F2 exec firefox
 bindsym $mod+Shift+F2 exec firefox --private-window
 bindsym $mod+F3 exec $term ranger
@@ -116,7 +116,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # workspace back and forth (with/without active container)
-workspace_auto_back_and_forth no
+workspace_auto_back_and_forth yes
 bindcode $mod+$b workspace back_and_forth
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
@@ -177,16 +177,16 @@ set $ws9 9
 set $ws10 10
 
 # switch to workspace
-bindsym $mod+1 exec i3-workspace-switch 1 || i3-new-workspace
-bindsym $mod+2 exec i3-workspace-switch 2 || i3-new-workspace
-bindsym $mod+3 exec i3-workspace-switch 3 || i3-new-workspace
-bindsym $mod+4 exec i3-workspace-switch 4 || i3-new-workspace
-bindsym $mod+5 exec i3-workspace-switch 5 || i3-new-workspace
-bindsym $mod+6 exec i3-workspace-switch 6 || i3-new-workspace
-bindsym $mod+7 exec i3-workspace-switch 7 || i3-new-workspace
-bindsym $mod+8 exec i3-workspace-switch 8 || i3-new-workspace
-bindsym $mod+9 exec i3-workspace-switch 9 || i3-new-workspace
-bindsym $mod+0 exec i3-workspace-switch 10 || i3-new-workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
 # Move focused container to workspace
 bindsym $mod+Ctrl+1 move container to workspace $ws1
@@ -357,8 +357,6 @@ exec --no-startup-id ~/.screenlayout/default.sh
 exec --no-startup-id blueman-applet
 exec --no-startup-id barrier
 exec --no-startup-id conky -c .cache/wal/conky.conf
-#exec --no-startup-id pasystray
-exec --no-startup-id volctl
 #exec --no-startup-id xss-lock --transfer-sleep-lock -- blurlock --nofork
 exec --no-startup-id udiskie -s
 exec --no-startup-id ibus-daemon -drx
@@ -371,7 +369,7 @@ exec_always --no-startup-id autotiling
 exec_always --no-startup-id python ~/.config/i3/i3-mode-wrapper.py
 exec --no-startup-id xfce4-panel &
 exec --no-startup-id /usr/lib/ts-polkitagent &
-exec_always --no-startup-id kitti3 -p top -- --class kitti3
+exec_always --no-startup-id kitti3 -p top -s 1 0.44 -- --class kitti3
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
@@ -491,3 +489,5 @@ mode "$mode_trans" {
 }
 
 gaps bottom 0
+
+exec sleep 3; i3-msg workspace $ws1 ; i3-auto-arrange 
