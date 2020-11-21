@@ -367,7 +367,7 @@ exec --no-startup-id discord --start-minimized
 exec_always --no-startup-id autotiling
 # exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id python ~/.config/i3/i3-mode-wrapper.py
-exec --no-startup-id xfce4-panel &
+exec --no-startup-id xfce4-panel --disable-wm-check &
 exec --no-startup-id /usr/lib/ts-polkitagent &
 exec_always --no-startup-id kitti3 -p top -s 1 0.44 -- --class kitti3
 

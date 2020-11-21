@@ -6,12 +6,12 @@ pywal-discord
 source ~/.cache/wal/colors.sh
 gsettings set org.freedesktop.ibus.panel xkb-icon-rgba $color7
 oomox-cli -o oomox -m all /home/litt/.cache/wal/colors-oomox
+xfce4-panel -r
 # oomox-archdroid-icons-cli -o oomox /home/litt/.cache/wal/colors-oomox
 pkill dunst
 dunst &
 spicetify update
 # wal_steam
-xfce4-panel -r
 killall telegram-desktop
 ~/.telegram-palette-gen/telegram-palette-gen --wal
 telegram-desktop -startintray &>/dev/null &
