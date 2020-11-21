@@ -20,6 +20,16 @@
     frame_color = "{color2}"
     frame_width = 1
 
+    browser = /usr/bin/firefox -new-tab
+    always_run_script = true
+
+
+    mouse_left_click = close_current
+    mouse_middle_click = close_all
+    mouse_right_click = do_action, close_current
+
+
+
     # How long a user needs to be idle for sticky notifications
     idle_threshold = 120
 
@@ -44,6 +54,7 @@
     close = ctrl+space
     close_all = ctrl+alt+space
     history = ctrl+shift+space
+    context = ctrl+shift+period
 
 # Set the background and foreground (text) color for all notifications
 [urgency_low]
