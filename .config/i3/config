@@ -92,10 +92,10 @@ bindcode $mod+Ctrl+$m exec pavucontrol
 focus_follows_mouse no
 
 # change focus
-bindcode $mod+$j focus left
+bindcode $mod+$h focus left
 bindcode $mod+$k focus down
-bindcode $mod+$l focus up
-bindcode $mod+$sc focus right
+bindcode $mod+$j focus up
+bindcode $mod+$l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -104,10 +104,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindcode $mod+Shift+$j move left
+bindcode $mod+Shift+$h move left
 bindcode $mod+Shift+$k move down
-bindcode $mod+Shift+$l move up
-bindcode $mod+Shift+$sc move right
+bindcode $mod+Shift+$j move up
+bindcode $mod+Shift+$l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -123,7 +123,7 @@ bindsym $mod+Shift+Tab workspace prev
 bindcode $mod+Shift+$b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
-bindcode $mod+$h split h;exec notify-send 'tile horizontally'
+bindcode $mod+$g split h;exec notify-send 'tile horizontally'
 bindcode $mod+$v split v;exec notify-send 'tile vertically'
 bindcode $mod+$t split toggle
 
@@ -324,10 +324,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindcode $j resize shrink width 5 px or 5 ppt
-        bindcode $k resize grow height 5 px or 5 ppt
-        bindcode $l resize shrink height 5 px or 5 ppt
-        bindcode $sc resize grow width 5 px or 5 ppt
+        bindcode $h resize shrink width 2 px or 2 ppt
+        bindcode $k resize grow height 2 px or 2 ppt
+        bindcode $j resize shrink height 2 px or 2 ppt
+        bindcode $l resize grow width 2 px or 2 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 2 px or 2 ppt
@@ -340,13 +340,18 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+Ctrl+Left resize shrink width 1 px or 1 ppt
-bindsym $mod+Ctrl+Down resize grow height 1 px or 1 ppt
-bindsym $mod+Ctrl+Up resize shrink height 1 px or 1 ppt
-bindsym $mod+Ctrl+Right resize grow width 1 px or 1 ppt
+bindsym $mod+Ctrl+Left resize shrink width 2 px or 2 ppt
+bindsym $mod+Ctrl+Down resize grow height 2 px or 2 ppt
+bindsym $mod+Ctrl+Up resize shrink height 2 px or 2 ppt
+bindsym $mod+Ctrl+Right resize grow width 2 px or 2 ppt
 
-# Lock screen
-#bindsym $mod+9 exec --no-startup-id blurlock
+bindcode $mod+Ctrl+$h resize shrink width 2 px or 2 ppt
+bindcode $mod+Ctrl+$k resize grow height 2 px or 2 ppt
+bindcode $mod+Ctrl+$j resize shrink height 2 px or 2 ppt
+bindcode $mod+Ctrl+$l resize grow width 2 px or 2 ppt
+
+# Cat protection 
+bindsym $mod+Delete exec --no-startup-id xtrlock
 
 # Autostart applications
 exec --no-startup-id wal -R ; sleep 1; picom -b
