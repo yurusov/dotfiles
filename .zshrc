@@ -154,3 +154,9 @@ export PATH="$HOME/.local/bin:$PATH"
 alias sudo='sudo -v; sudo '
 
 eval "`pip completion --zsh`"
+
+if [ -n "$DESKTOP_SESSION" ];then
+    eval $(gnome-keyring-daemon --start)
+    export SSH_AUTH_SOCK
+fi
+
