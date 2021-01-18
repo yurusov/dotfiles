@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
-#mpv --wid=`wmctrl -l | grep Streamlink | awk '{print $1}'` $@ 
-WID=`xdotool getactivewindow`
-mpv --wid=$WID $@ 
+#WID=`xdotool getactivewindow`
+#mpv --wid=$WID $@ 
+exec mpv $@
+i3-msg '[class="mpv"] move to mark twitch'
