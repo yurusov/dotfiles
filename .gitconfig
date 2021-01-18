@@ -1,3 +1,9 @@
 [user]
 	email = litt@ru-litt.ru
 	name = litt
+[alias]
+  st = status
+  ci = commit
+  br = branch
+  co = checkout
+  f = fetch

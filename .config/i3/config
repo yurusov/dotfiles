@@ -56,13 +56,13 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec $term
-bindsym Menu nop kitti3
 
 # kill focused window
 bindcode $mod+$q kill
 
 # start program launcher
 bindcode $mod+$d exec --no-startup-id rofi -show drun
+bindcode Mod1+Shift+10 exec --no-startup-id rofi -show drun
 
 
 ################################################################################################
@@ -72,9 +72,10 @@ bindcode $mod+$d exec --no-startup-id rofi -show drun
 bindsym $mod+F1 exec wmctrl -x -a spotify || ((python ~/.config/i3/workspace_free.py || i3-new-workspace) && (pgrep spotify || spotify))
 bindsym $mod+F2 exec firefox
 bindsym $mod+Shift+F2 exec firefox --private-window
+bindsym $mod+Ctrl+F2 exec firefox -P work
 bindsym $mod+F3 exec $term ranger
-bindsym $mod+F4 exec ~/.local/bin/themer -w
-bindsym $mod+F5 exec ~/.local/bin/themer -wl
+bindsym $mod+F4 exec ~/.local/bin/themer -i `cat ~/.cache/wal/wal`
+bindsym $mod+F5 exec ~/.local/bin/themer -il `cat ~/.cache/wal/wal`
 bindsym $mod+Shift+F3 exec pcmanfm
 # Take clipboard content and try to play it with mpv. Works with youtube videos and playlists, twitch ,vimeo, etc
 bindsym $mod+F7 exec streamlink `clipit -c`
@@ -92,10 +93,10 @@ bindcode $mod+Ctrl+$m exec pavucontrol
 focus_follows_mouse no
 
 # change focus
-bindcode $mod+$j focus left
+bindcode $mod+$h focus left
 bindcode $mod+$k focus down
-bindcode $mod+$l focus up
-bindcode $mod+$sc focus right
+bindcode $mod+$j focus up
+bindcode $mod+$l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -104,10 +105,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindcode $mod+Shift+$j move left
+bindcode $mod+Shift+$h move left
 bindcode $mod+Shift+$k move down
-bindcode $mod+Shift+$l move up
-bindcode $mod+Shift+$sc move right
+bindcode $mod+Shift+$j move up
+bindcode $mod+Shift+$l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -123,7 +124,7 @@ bindsym $mod+Shift+Tab workspace prev
 bindcode $mod+Shift+$b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
-bindcode $mod+$h split h;exec notify-send 'tile horizontally'
+bindcode $mod+$g split h;exec notify-send 'tile horizontally'
 bindcode $mod+$v split v;exec notify-send 'tile vertically'
 bindcode $mod+$t split toggle
 
@@ -152,10 +153,12 @@ bindsym --release button2 kill
 
 # move the currently focused window to the scratchpad
 bindcode $mod+Shift+$tilda move scratchpad
+bindcode $mod+Menu move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
 bindcode $mod+$tilda scratchpad show
+bindsym Menu scratchpad show 
 
 #navigate workspaces next / previous
 bindsym $mod+Mod1+Right workspace next
@@ -325,10 +328,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindcode $j resize shrink width 5 px or 5 ppt
-        bindcode $k resize grow height 5 px or 5 ppt
-        bindcode $l resize shrink height 5 px or 5 ppt
-        bindcode $sc resize grow width 5 px or 5 ppt
+        bindcode $h resize shrink width 2 px or 2 ppt
+        bindcode $k resize grow height 2 px or 2 ppt
+        bindcode $j resize shrink height 2 px or 2 ppt
+        bindcode $l resize grow width 2 px or 2 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 2 px or 2 ppt
@@ -341,13 +344,18 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+Ctrl+Left resize shrink width 1 px or 1 ppt
-bindsym $mod+Ctrl+Down resize grow height 1 px or 1 ppt
-bindsym $mod+Ctrl+Up resize shrink height 1 px or 1 ppt
-bindsym $mod+Ctrl+Right resize grow width 1 px or 1 ppt
+bindsym $mod+Ctrl+Left resize shrink width 2 px or 2 ppt
+bindsym $mod+Ctrl+Down resize grow height 2 px or 2 ppt
+bindsym $mod+Ctrl+Up resize shrink height 2 px or 2 ppt
+bindsym $mod+Ctrl+Right resize grow width 2 px or 2 ppt
 
-# Lock screen
-#bindsym $mod+9 exec --no-startup-id blurlock
+bindcode $mod+Ctrl+$h resize shrink width 2 px or 2 ppt
+bindcode $mod+Ctrl+$k resize grow height 2 px or 2 ppt
+bindcode $mod+Ctrl+$j resize shrink height 2 px or 2 ppt
+bindcode $mod+Ctrl+$l resize grow width 2 px or 2 ppt
+
+# Cat protection 
+bindsym $mod+Delete exec --no-startup-id xtrlock
 
 # Autostart applications
 exec --no-startup-id wal -R ; sleep 1; picom -b
@@ -370,7 +378,7 @@ exec_always --no-startup-id autotiling
 exec_always --no-startup-id python ~/.config/i3/i3-mode-wrapper.py
 exec --no-startup-id xfce4-panel --disable-wm-check &
 exec --no-startup-id /usr/lib/ts-polkitagent &
-exec_always --no-startup-id kitti3 -p top -s 1 0.44 -- --class kitti3
+# exec_always --no-startup-id kitti3 -p top -s 1 0.44 -- --class kitti3
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
