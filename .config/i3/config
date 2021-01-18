@@ -56,13 +56,13 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec $term
-bindsym Menu nop kitti3
 
 # kill focused window
 bindcode $mod+$q kill
 
 # start program launcher
 bindcode $mod+$d exec --no-startup-id rofi -show drun
+bindcode Mod1+Shift+10 exec --no-startup-id rofi -show drun
 
 
 ################################################################################################
@@ -72,9 +72,10 @@ bindcode $mod+$d exec --no-startup-id rofi -show drun
 bindsym $mod+F1 exec wmctrl -x -a spotify || ((python ~/.config/i3/workspace_free.py || i3-new-workspace) && (pgrep spotify || spotify))
 bindsym $mod+F2 exec firefox
 bindsym $mod+Shift+F2 exec firefox --private-window
+bindsym $mod+Ctrl+F2 exec firefox -P work
 bindsym $mod+F3 exec $term ranger
-bindsym $mod+F4 exec ~/.local/bin/themer -w
-bindsym $mod+F5 exec ~/.local/bin/themer -wl
+bindsym $mod+F4 exec ~/.local/bin/themer -i `cat ~/.cache/wal/wal`
+bindsym $mod+F5 exec ~/.local/bin/themer -il `cat ~/.cache/wal/wal`
 bindsym $mod+Shift+F3 exec pcmanfm
 # Take clipboard content and try to play it with mpv. Works with youtube videos and playlists, twitch ,vimeo, etc
 bindsym $mod+F7 exec streamlink `clipit -c`
@@ -152,10 +153,12 @@ bindsym --release button2 kill
 
 # move the currently focused window to the scratchpad
 bindcode $mod+Shift+$tilda move scratchpad
+bindcode $mod+Menu move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
 bindcode $mod+$tilda scratchpad show
+bindsym Menu scratchpad show 
 
 #navigate workspaces next / previous
 bindsym $mod+Mod1+Right workspace next
@@ -374,7 +377,7 @@ exec_always --no-startup-id autotiling
 exec_always --no-startup-id python ~/.config/i3/i3-mode-wrapper.py
 exec --no-startup-id xfce4-panel --disable-wm-check &
 exec --no-startup-id /usr/lib/ts-polkitagent &
-exec_always --no-startup-id kitti3 -p top -s 1 0.44 -- --class kitti3
+# exec_always --no-startup-id kitti3 -p top -s 1 0.44 -- --class kitti3
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
