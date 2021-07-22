@@ -4,7 +4,7 @@
     "border": "pixel",
     "floating": "auto_off",
     "layout": "tabbed",
-    "percent": 0.84,
+    "percent": 0.78,
     "type": "con",
     "mark": "twitch",
     "nodes": [
@@ -35,7 +35,7 @@
     "border": "pixel",
     "floating": "auto_off",
     "layout": "splitv",
-    "percent": 0.16,
+    "percent": 0.22,
     "type": "con",
     "nodes": [
         {

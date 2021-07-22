@@ -75,7 +75,7 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git ruby rails rake-fast sudo docker docker-compose)
+plugins=(git gitignore ruby rails bundler rbenv gem sudo docker docker-compose archlinux)
 
 
 # User configuration
@@ -139,7 +139,6 @@ ex ()
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
-eval "$(pyenv init -)"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -155,8 +154,4 @@ alias sudo='sudo -v; sudo '
 
 eval "`pip completion --zsh`"
 
-if [ -n "$DESKTOP_SESSION" ];then
-    eval $(gnome-keyring-daemon --start)
-    export SSH_AUTH_SOCK
-fi
 

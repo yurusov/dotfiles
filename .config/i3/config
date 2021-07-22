@@ -363,9 +363,9 @@ exec --no-startup-id wal -R ; sleep 1; picom -b
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id clipit
-exec --no-startup-id ~/.screenlayout/default.sh
+# exec --no-startup-id ~/.screenlayout/default.sh
 exec --no-startup-id blueman-applet
-#exec --no-startup-id barrier
+exec --no-startup-id barrier
 exec --no-startup-id conky -c .cache/wal/conky.conf
 #exec --no-startup-id xss-lock --transfer-sleep-lock -- blurlock --nofork
 exec --no-startup-id udiskie -s
@@ -376,7 +376,7 @@ exec --no-startup-id QT_IM_MODULE=ibus telegram-desktop -startintray
 exec --no-startup-id discord --start-minimized
 exec_always --no-startup-id autotiling
 # exec_always --no-startup-id ~/.config/polybar/launch.sh
-exec_always --no-startup-id python ~/.config/i3/i3-mode-wrapper.py
+# exec_always --no-startup-id python ~/.config/i3/i3-mode-wrapper.py
 exec --no-startup-id xfce4-panel --disable-wm-check &
 exec --no-startup-id /usr/lib/ts-polkitagent &
 # exec_always --no-startup-id kitti3 -p top -s 1 0.44 -- --class kitti3
