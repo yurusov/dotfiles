@@ -1,6 +1,6 @@
 configuration {
-	modi: "combi,window,drun,ssh";
+	modi: "combi,window,drun,ssh,run,windowcd,keys,filebrowser";
 	font: "inconsolata 12";
-	combi-modi: "window,drun,ssh";
-	theme: "~/.cache/wal/colors-rofi-dark.rasi";
+	combi-modi: "window,drun";
+	theme: "~/.cache/wal/rofi.rasi";
 }

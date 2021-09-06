@@ -10,10 +10,12 @@ xfce4-panel -r
 # oomox-archdroid-icons-cli -o oomox /home/litt/.cache/wal/colors-oomox
 pkill dunst
 dunst &
-spicetify update
+# spicetify update
 # wal_steam
 killall telegram-desktop
 ~/.telegram-palette-gen/telegram-palette-gen --wal
 telegram-desktop -startintray &>/dev/null &
 # convert `cat .cache/wal/wal` /usr/share/lightdm-webkit/themes/glorious/assets/bg.jpg
 exit 0
+
+

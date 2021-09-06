@@ -1,0 +1,9 @@
+normal_color=6184036
+focused_color=16184820
+urgent_color=16711680
+mode_color=16184820
+visible_color=6184036
+strip_workspace_numbers=false
+auto_detect_outputs=true
+output=DVI-D-0
+

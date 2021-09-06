@@ -1,0 +1,28 @@
+[icons]
+# font awesome
+# TelegramDesktop = ""
+# firefox = ""
+# Thunderbird = ""
+
+[aliases]
+TelegramDesktop = "Telegram"
+firefox = "Firefox"
+kitty = "Kitty"
+"litt@skynet.*" = "Kitty"
+"Chatterino.*" = "Twitch"
+streamlink-twitch-gui = "Twitch"
+"twitch.tv/.* - mpv" = "Twitch"
+Code = "VSCode"
+discord = "Discord"
+"vim.*" = "Vim"
+
+[general]
+separator = " | "
+# default_icon = ""
+wm_property = "name"
+
+[options]
+remove_duplicates = true
+no_names = false
+no_icon_names = false
+
