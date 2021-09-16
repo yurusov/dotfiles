@@ -33,6 +33,8 @@ set $v 55
 set $b 56
 set $n 57
 set $m 58
+set $< 59
+set $> 60
 set $tilda 49
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
@@ -121,6 +123,10 @@ bindcode $mod+$b workspace back_and_forth
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 bindcode $mod+Shift+$b move container to workspace back_and_forth; workspace back_and_forth
+
+# move workspace to other screen
+bindcode $mod+$< move workspace to output left
+bindcode $mod+$> move workspace to output right
 
 # split orientation
 bindcode $mod+$g split h;exec notify-send 'tile horizontally'
