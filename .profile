@@ -9,6 +9,6 @@ export QT_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export GLFW_IM_MODULE=ibus
 export PATH="$HOME/.cargo/bin:$PATH"
-eval $(gnome-keyring-daemon --start)
+# eval $(gnome-keyring-daemon --start)
 export SSH_AUTH_SOCK
 
