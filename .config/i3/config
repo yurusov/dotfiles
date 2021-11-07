@@ -85,9 +85,9 @@ bindcode $mod+Shift+$p exec --no-startup-id pkill picom
 bindcode $mod+Ctrl+$p exec --no-startup-id picom -b
 bindcode $mod+Mod1+$d exec dmenu_run -nb "$fg" -nf "$bg" -sb "$bg" -sf "$fg"
 bindcode $mod+Ctrl+$d --release exec "killall dunst; exec notify-send 'restart dunst'"
-bindsym --release Print exec maim | xclip -selection clipboard -t image/png && xclip -selection clipboard -t image/png -o > ~/Pictures/screenshots/$(date +%Y-%m-%d-%H-%M-%S).png && notify-send "Fullscreen screenshot saved as" ~/pictures/screenshots/$(date +%Y-%m-%d-%H-%M-%S).png
-bindsym --release $mod+Print exec maim -s | xclip -selection clipboard -t image/png && xclip -selection clipboard -t image/png -o > ~/Pictures/screenshots/$(date +%Y-%m-%d-%H-%M-%S).png && notify-send "Selection screenshot saved as" ~/pictures/screenshots/$(date +%Y-%m-%d-%H-%M-%S).png
-bindsym --release Mod1+Sys_Req exec maim -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png && xclip -selection clipboard -t image/png -o > ~/Pictures/screenshots/$(date +%Y-%m-%d-%H-%M-%S).png && notify-send "Active window screenshot saved as" ~/pictures/screenshots/$(date +%Y-%m-%d-%H-%M-%S).png
+bindsym --release Print exec flameshot screen -c -p ~/Pictures/screenshots/
+bindsym --release $mod+Print exec flameshot gui -p ~/Pictures/screenshots/
+bindsym --release Mod1+Sys_Req exec flameshot full -c -p ~/Pictures/screenshots/
 bindcode $mod+Ctrl+$x --release exec --no-startup-id xkill
 bindcode $mod+Ctrl+$m exec pavucontrol
 
